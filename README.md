@@ -41,7 +41,7 @@
 </p>
 
 <h1 align="center">
-    <img width="600" style="border-radius: 10px" height="auto" alt="Home" title="Home" src="public/home.png" />
+    <img width="600" style="border-radius: 10px" height="auto" alt="SignIn" title="SignIn" src="public/signin.png" />
   <div style="display: flex; flex-direction: row;">
     <img width="400" style="border-radius: 10px" height="auto" alt="Dashboard" title="Dashboard" src="public/dashboard.png" />
     <img width="400" style="border-radius: 10px" height="auto" alt="Users" title="Users" src="public/users.png" />
