@@ -122,7 +122,7 @@ By Rodrigo Santos 👋🏽 Find me:
   ---
   Dashboard | Users | Menu
   --- | --- | ---
-  <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-dashboard" /> | <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-users" /> | <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-menu" />
+  <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-dashboard.png" /> | <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-users.png" /> | <img width="300" style="border-radius: 10px" height="auto" alt="Login" title="Login" src="public/mobile-menu.png" />
 </h1>
 
 
