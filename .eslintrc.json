@@ -41,6 +41,7 @@
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "react/require-default-props": "off",
+      "no-nested-ternary": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
