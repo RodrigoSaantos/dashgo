@@ -54,7 +54,8 @@ export function makeServer() {
         const pageEnd = pageStart + Number(per_page);
 
         const users = this.serialize(schema.all('user'))
-          .users.sort((a, b) => a.createdAt - b.createdAt)
+          .users.sort((a, b) => a.created_at - b.created_at)
+          .reverse()
           .slice(pageStart, pageEnd);
 
         return new Response(200, { 'x-total-count': String(total) }, { users });

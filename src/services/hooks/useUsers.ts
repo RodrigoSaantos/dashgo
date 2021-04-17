@@ -35,8 +35,6 @@ export async function getUsers(page: number): Promise<GetUserResponse> {
     };
   });
 
-  console.log(users);
-
   return { users, totalCount };
 }
 
