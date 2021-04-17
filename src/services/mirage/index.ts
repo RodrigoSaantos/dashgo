@@ -37,7 +37,7 @@ export function makeServer() {
     },
 
     seeds(srv) {
-      srv.createList('user', 8);
+      srv.createList('user', 200);
     },
 
     routes() {
@@ -45,7 +45,7 @@ export function makeServer() {
       this.timing = 750;
 
       this.get('/users', function (schema, request) {
-        const { page = 1, per_page = 10 } = request.queryParams;
+        const { page = 1, per_page = 5 } = request.queryParams;
 
         const total = schema.all('user').length;
 
