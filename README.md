@@ -66,6 +66,12 @@ The following tools were used in the construction of the project:
 - [Yarn](https://yarnpkg.com) or Npm
 - [VSCode](https://code.visualstudio.com)
 - [Git Bash](https://gitforwindows.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Mirage JS](https://miragejs.com/)
+- [Faker.js](https://github.com/marak/faker.js/)
+- [React Query](https://react-query.tanstack.com/)
+- [Apexcharts.js](https://apexcharts.com/)
 
 <h2 id="usage" > 👷 Usage </h2>
 
