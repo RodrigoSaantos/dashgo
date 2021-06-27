@@ -19,7 +19,7 @@ export function Header() {
       as="header"
       w="100%"
       maxW={1480}
-      h="20"
+      h="3.875rem"
       mx="auto"
       mt={4}
       align="center"
