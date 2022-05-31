@@ -2,7 +2,7 @@ import { Button, Flex, Stack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { Input } from '../components/Form/Input';
 
-const Home: NextPage = () => {
+const SignIn: NextPage = () => {
   return (
     <Flex
       w="100vw"
@@ -37,4 +37,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default SignIn
