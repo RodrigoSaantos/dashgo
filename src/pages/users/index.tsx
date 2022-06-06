@@ -27,7 +27,20 @@ export default function UsersList() {
     const response = await fetch('http://localhost:3000/api/users');
     const responseData = await response.json();
 
-    return responseData;
+    const users = responseData.users.map(user => {
+      return {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        createdAt: new Date(user.createdAt).toLocaleDateString('pr-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric',
+        }),
+      };
+    });
+
+    return users;
   });
 
   const isWideVersion = useBreakpointValue({
@@ -88,109 +101,43 @@ export default function UsersList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme="pink" />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight="bold">Rodrigo Santos</Text>
-                        <Text fontSize="sm" color="gray.300">
-                          contato.rodrigosaantos@gmail.com
-                        </Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                    <Td>
-                      <Button
-                        as="a"
-                        size="sm"
-                        fontSize="sm"
-                        colorScheme="purple"
-                      >
-                        {isWideVersion ? (
-                          <>
-                            <Text as="span" marginInlineEnd={2}>
-                              <Icon as={RiPencilLine} fontSize={16} />
+                {data.map(user => {
+                    return (
+                      <Tr key={user.id}>
+                        <Td px={['4', '4', '6']}>
+                          <Checkbox colorScheme="pink" />
+                        </Td>
+                        <Td>
+                          <Box>
+                            <Text fontWeight="bold">{user.name}</Text>
+                            <Text fontSize="sm" color="gray.300">
+                              {user.email}
                             </Text>
-                            Editar
-                          </>
-                        ) : (
-                          <Icon as={RiPencilLine} fontSize={16} />
-                        )}
-                      </Button>
-                    </Td>
-                  </Tr>
-                </Tbody>
-                <Tbody>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme="pink" />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight="bold">Rodrigo Santos</Text>
-                        <Text fontSize="sm" color="gray.300">
-                          contato.rodrigosaantos@gmail.com
-                        </Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                    <Td>
-                      <Button
-                        as="a"
-                        size="sm"
-                        fontSize="sm"
-                        colorScheme="purple"
-                      >
-                        {isWideVersion ? (
-                          <>
-                            <Text as="span" marginInlineEnd={2}>
+                          </Box>
+                        </Td>
+                        {isWideVersion && <Td>{user.createdAt}</Td>}
+                        <Td>
+                          <Button
+                            as="a"
+                            size="sm"
+                            fontSize="sm"
+                            colorScheme="purple"
+                          >
+                            {isWideVersion ? (
+                              <>
+                                <Text as="span" marginInlineEnd={2}>
+                                  <Icon as={RiPencilLine} fontSize={16} />
+                                </Text>
+                                Editar
+                              </>
+                            ) : (
                               <Icon as={RiPencilLine} fontSize={16} />
-                            </Text>
-                            Editar
-                          </>
-                        ) : (
-                          <Icon as={RiPencilLine} fontSize={16} />
-                        )}
-                      </Button>
-                    </Td>
-                  </Tr>
-                </Tbody>
-                <Tbody>
-                  <Tr>
-                    <Td px={['4', '4', '6']}>
-                      <Checkbox colorScheme="pink" />
-                    </Td>
-                    <Td>
-                      <Box>
-                        <Text fontWeight="bold">Rodrigo Santos</Text>
-                        <Text fontSize="sm" color="gray.300">
-                          contato.rodrigosaantos@gmail.com
-                        </Text>
-                      </Box>
-                    </Td>
-                    {isWideVersion && <Td>04 de Abril, 2021</Td>}
-                    <Td>
-                      <Button
-                        as="a"
-                        size="sm"
-                        fontSize="sm"
-                        colorScheme="purple"
-                      >
-                        {isWideVersion ? (
-                          <>
-                            <Text as="span" marginInlineEnd={2}>
-                              <Icon as={RiPencilLine} fontSize={16} />
-                            </Text>
-                            Editar
-                          </>
-                        ) : (
-                          <Icon as={RiPencilLine} fontSize={16} />
-                        )}
-                      </Button>
-                    </Td>
-                  </Tr>
+                            )}
+                          </Button>
+                        </Td>
+                      </Tr>
+                    );
+                  })}
                 </Tbody>
               </Table>
               <Pagination />
