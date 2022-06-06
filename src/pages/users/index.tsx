@@ -22,12 +22,19 @@ import { Header } from '../../components/Header';
 import { Pagination } from '../../components/Pagination';
 import { Sidebar } from '../../components/Sidebar';
 
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+}
+
 export default function UsersList() {
   const { data, isLoading, error } = useQuery('users', async () => {
     const response = await fetch('http://localhost:3000/api/users');
     const responseData = await response.json();
 
-    const users = responseData.users.map(user => {
+    const users = responseData.users.map((user: User) => {
       return {
         id: user.id,
         name: user.name,
@@ -41,7 +48,11 @@ export default function UsersList() {
     });
 
     return users;
-  });
+  },
+  {
+    staleTime: 1000 * 5 // 5 seconds
+  },
+  );
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -101,7 +112,7 @@ export default function UsersList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                {data.map(user => {
+                {data.map((user: User) => {
                     return (
                       <Tr key={user.id}>
                         <Td px={['4', '4', '6']}>
