@@ -113,7 +113,7 @@ export default function UsersList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                {data.users.map((user: User) => {
+                {data.users.map((user) => {
                     return (
                       <Tr key={user.id}>
                         <Td px={['4', '4', '6']}>
