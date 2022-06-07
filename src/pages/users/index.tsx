@@ -16,6 +16,7 @@ import {
   useBreakpointValue
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useState } from 'react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 import { useQuery } from 'react-query';
 import { Header } from '../../components/Header';
@@ -32,7 +33,8 @@ type User = {
 }
 
 export default function UsersList() {
-  const { data, isLoading, isFetching, error } = useUsers();
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching, error } = useUsers(page);
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -95,7 +97,7 @@ export default function UsersList() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                {data?.map((user: User) => {
+                {data.users.map((user: User) => {
                     return (
                       <Tr key={user.id}>
                         <Td px={['4', '4', '6']}>
@@ -135,9 +137,9 @@ export default function UsersList() {
                 </Tbody>
               </Table>
               <Pagination
-                totalCountOfRegisters={200}
-                currentPage={5}
-                onPageChange={() => {}}
+                totalCountOfRegisters={data.totalCount}
+                currentPage={page}
+                onPageChange={setPage}
               />
             </>
           )}
